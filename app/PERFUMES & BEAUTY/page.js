@@ -10,4 +10,4 @@ const BeautyPage = () => {
   )
 }
 
-export default BeautyPagePage
+export default BeautyPage
