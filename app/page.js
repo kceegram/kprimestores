@@ -3,7 +3,7 @@
 import React from 'react'
 import HomeSec from '@/Components/HomeSecComp/HomeSec'
 
-const page = () => {
+const HomePagepage = () => {
   return (
     <div>
       <HomeSec />
@@ -11,7 +11,7 @@ const page = () => {
   )
 }
 
-export default page
+export default HomePage
 
 
 
