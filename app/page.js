@@ -3,7 +3,7 @@
 import React from 'react'
 import HomeSec from '@/Components/HomeSecComp/HomeSec'
 
-const HomePagepage = () => {
+const HomePage = () => {
   return (
     <div>
       <HomeSec />
