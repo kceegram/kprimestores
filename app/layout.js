@@ -11,12 +11,12 @@ import Footer from "@/Components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "LFC ELELENWO",
-  description: "Winners Chapel Elelenwo Website",
+  title: "KPRIMESTORES",
+  description: "kprimestores website",
   icons: {
-    icon: "/winnerslogo.png",          // 👈 your website logo
-    shortcut: "/winnerslogo.png",      // 👈 browser shortcut icon
-    apple: "/winnerslogo.png",         // 👈 Apple touch icon
+    icon: "/kprimelogo.img.png",          // 👈 your website logo
+    shortcut: "/kprimelogo.img.png",      // 👈 browser shortcut icon
+    apple: "/kprimelogo.img.png",         // 👈 Apple touch icon
   },
 };
 
