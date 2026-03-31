@@ -47,24 +47,82 @@ export default function Navbar() {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
 
-      {/* ── ROW 1 ── */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+        .nav-desktop-link {
+          font-family: 'Jost', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #52525b;
+          padding: 20px 16px;
+          position: relative;
+          display: block;
+          white-space: nowrap;
+          transition: color 0.25s ease;
+        }
+        .nav-desktop-link:hover { color: #f58c27; }
+        .nav-desktop-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0; left: 16px; right: 16px;
+          height: 2px;
+          background: linear-gradient(90deg, #f58c27, #c86e10);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.25s ease;
+        }
+        .nav-desktop-link:hover::after { transform: scaleX(1); }
+
+        .mobile-nav-link {
+          font-family: 'Jost', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #52525b;
+          display: flex;
+          align-items: center;
+          padding: 14px 16px;
+          border-bottom: 1px solid #f3f4f6;
+          transition: color 0.2s ease, background 0.2s ease;
+        }
+        .mobile-nav-link:last-child { border-bottom: none; }
+        .mobile-nav-link:hover { color: #f58c27; background: #fafafa; }
+      `}</style>
+
+      {/* ── ROW 1: Announcement strip ── */}
       <div className="border-b border-gray-200 bg-gray-50 py-2 md:py-3">
 
-        {/* DESKTOP layout */}
+        {/* DESKTOP */}
         <div className="hidden md:flex max-w-7xl mx-auto px-6 items-center justify-center">
-          <span className="text-[10px] tracking-[0.35em] uppercase text-gray-400 font-medium flex items-center gap-2">
+          <span
+            style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: '10px',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              fontWeight: 500,
+              color: '#f58c27',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
             Thrift &amp; New
-            <span className="text-[#c8954a]">—</span>
+            <span>—</span>
             Fashion
-            <span className="text-[#c8954a]">·</span>
+            <span>·</span>
             Electronics
-            <span className="text-[#c8954a]">·</span>
+            <span>·</span>
             Beauty
           </span>
         </div>
 
-        {/* MOBILE layout — logo hard left, hamburger hard right */}
-        <div className="flex md:hidden items-center justify-between ">
+        {/* MOBILE: logo left, hamburger right */}
+        <div className="flex md:hidden items-center justify-between">
           <Link href="/" className="flex items-center -my-8">
             <Image
               src="/kprimestore.img.png"
@@ -78,7 +136,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-gray-600 hover:text-[#c8954a] transition-colors duration-200 p-5 flex-shrink-0 ml-auto"
+            className="text-zinc-600 hover:text-[#f58c27] transition-colors duration-200 p-5 flex-shrink-0 ml-auto"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -91,11 +149,11 @@ export default function Navbar() {
 
       </div>
 
-      {/* ── ROW 2: NAV BAR — logo left, bold categories right (desktop only) ── */}
+      {/* ── ROW 2: Main nav bar (desktop only) ── */}
       <nav className="hidden md:block bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
 
-          {/* Logo — Left */}
+          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/kprimestore.img.png"
@@ -106,18 +164,11 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Bold Categories — Right */}
+          {/* Nav links */}
           <ul className="flex items-center gap-2">
             {NAV_ITEMS.map((item) => (
               <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="relative block px-4 py-4 text-[13px] font-bold tracking-wider uppercase text-gray-700
-                             hover:text-[#c8954a] transition-colors duration-200 whitespace-nowrap
-                             after:absolute after:bottom-0 after:left-4 after:right-4 after:h-[2px]
-                             after:bg-[#c8954a] after:scale-x-0 hover:after:scale-x-100
-                             after:transition-transform after:duration-200 after:origin-left"
-                >
+                <Link href={item.href} className="nav-desktop-link">
                   {item.label}
                 </Link>
               </li>
@@ -132,19 +183,28 @@ export default function Navbar() {
           mobileOpen ? "max-h-[30rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        {/* Rotating carousel strip — mobile only */}
+        {/* Rotating carousel strip */}
         <div className="flex items-center justify-center px-3 py-2 bg-gray-50 border-b border-gray-100 h-9 overflow-hidden">
           <span
             style={{
               opacity: fade ? 1 : 0,
               transform: fade ? "translateY(0)" : "translateY(-6px)",
               transition: "opacity 0.3s ease, transform 0.3s ease",
+              fontFamily: "'Jost', sans-serif",
+              fontSize: '10px',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              fontWeight: 500,
+              color: '#f58c27',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              whiteSpace: 'nowrap',
             }}
-            className="text-[10px] tracking-[0.35em] uppercase text-gray-400 font-medium flex items-center gap-2 whitespace-nowrap"
           >
-            <span className="text-[#c8954a]">—</span>
+            <span>—</span>
             {CAROUSEL_ITEMS[carouselIndex]}
-            <span className="text-[#c8954a]">—</span>
+            <span>—</span>
           </span>
         </div>
 
@@ -154,9 +214,7 @@ export default function Navbar() {
             key={item.label}
             href={item.href}
             onClick={() => setMobileOpen(false)}
-            className="flex items-center px-4 py-3.5 text-[13px] font-bold tracking-wider uppercase
-                       text-gray-700 hover:text-[#c8954a] hover:bg-gray-50 border-b border-gray-100
-                       last:border-0 transition-colors duration-150"
+            className="mobile-nav-link"
           >
             {item.label}
           </Link>
