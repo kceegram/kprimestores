@@ -5,19 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 const NAV_ITEMS = [
-  { label: "Women",            href: "/women"          },
-  { label: "Men",              href: "/men"            },
-  { label: "Kids",             href: "/kids"           },
-  { label: "Electronics",      href: "/electronics"    },
-  { label: "Perfume & Beauty", href: "/perfume-beauty" },
+  { label: "Perfumes", href: "/perfumes" },
+  { label: "Watches",  href: "/watches"  },
+  { label: "Blog",     href: "/blog"     },
+  { label: "Contact",  href: "/contact"  },
 ];
 
 const CAROUSEL_ITEMS = [
-  "Thrift & New",
-  "Fashion for Everyone",
-  "Electronics & Gadgets",
-  "Perfume & Beauty",
-  "Shop Smart. Live Bold.",
+  "Perfumes — Discover Your Signature Scent",
+  "Watches — Timeless Style",
+  "Read Our Blog",
+  "Get In Touch With Us",
 ];
 
 export default function Navbar() {
@@ -111,13 +109,9 @@ export default function Navbar() {
               gap: '8px',
             }}
           >
-            Thrift &amp; New
-            <span>—</span>
-            Fashion
+            Perfumes
             <span>·</span>
-            Electronics
-            <span>·</span>
-            Beauty
+            Watches
           </span>
         </div>
 

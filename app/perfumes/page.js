@@ -2,12 +2,12 @@
 
 import React from 'react'
 
-const WomenPage = () => {
+const page = () => {
   return (
     <div>
-      <h1>Women</h1>
+      
     </div>
   )
 }
 
-export default WomenPage
+export default page
