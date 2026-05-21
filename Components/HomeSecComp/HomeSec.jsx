@@ -34,6 +34,9 @@ function useReveal() {
   return ref
 }
 
+const getInitials = (name) =>
+  name.split(' ').map((w) => w[0]).join('').slice(0, 2)
+
 const HomeSec = () => {
   const [currentSlide, setCurrentSlide]             = useState(0)
   const [isAnimating, setIsAnimating]               = useState(false)
@@ -47,60 +50,31 @@ const HomeSec = () => {
   const heroSlides = [
     { src: '/carousel img4.jpg',  alt: 'Luxury Fragrances'    },
     { src: '/carousel img7.jpg',  alt: 'Timepiece Collection' },
-    { src: '/carousel img3.jpg', alt: 'Premium Selection'    },
-    { src: '/carousel img6.jpg', alt: 'Premium Selection'    },
+    { src: '/carousel img3.jpg',  alt: 'Premium Selection'    },
+    { src: '/carousel img6.jpg',  alt: 'Premium Selection'    },
   ]
 
   const galleryImages = [
-    { src: '/showcase perfume img3.jpg',  alt: 'Fragrance Collection 1' },
-    { src: '/showcase watch img3.jpg',    alt: 'Watch Collection 1'     },
-    { src: '/showcase perfume img4.jpg', alt: 'Fragrance and Watch Collection 2' },
-    { src: '/showcase watch img2.jpg',   alt: 'Watch Collection 2'     },
-    { src: '/kprimestoremiii.png',  alt: 'Fragrance Collection 3' },
-    { src: '/showcase watch img1.jpg',   alt: 'Watch Collection 3'     },
+    { src: '/showcase perfume img3.jpg',  alt: 'Fragrance Collection 1'          },
+    { src: '/showcase watch img3.jpg',    alt: 'Watch Collection 1'              },
+    { src: '/showcase perfume img4.jpg',  alt: 'Fragrance and Watch Collection 2' },
+    { src: '/showcase watch img2.jpg',    alt: 'Watch Collection 2'              },
+    { src: '/kprimestoremiii.png',        alt: 'Fragrance Collection 3'          },
+    { src: '/showcase watch img1.jpg',    alt: 'Watch Collection 3'              },
   ]
 
+
   const testimonials = [
-    {
-      name: 'BUDUZIRI WISDOM',
-      text: 'The fragrance I ordered from KPrimestores is absolutely breathtaking — rich, long-lasting, and far beyond what I expected at the price. Every compliment I receive now leads people straight here.',
-    },
-    {
-      name: 'MEZIE BRIGHT',
-      text: 'I purchased a timepiece as a gift and it arrived impeccably packaged and exactly as described. The quality rivals pieces three times the price. KPrimestores has set a new standard for me.',
-    },
-    {
-      name: 'CHIMZI DICKSON',
-      text: 'The depth and projection of the perfume I bought is extraordinary. I have worn designer fragrances for years, and KPrimestores curates at that same elevated level — at a price that finally makes sense.',
-    },
-    {
-      name: 'CHINWE PRESH',
-      text: 'My watch arrived looking like pure luxury — flawless finishing, smooth movement, and an elegance I did not expect at this price point. KPrimestores delivers on every promise without exception.',
-    },
-    {
-      name: 'KELLY RICHARD',
-      text: 'I have ordered three fragrances so far and each one has been a masterpiece. The scent profiles are sophisticated, the longevity is remarkable, and the pricing is genuinely unbeatable.',
-    },
-    {
-      name: 'MAURICE FRANK',
-      text: 'KPrimestores sent me a watch that stopped every conversation in the room. People could not believe the price. The craftsmanship is genuine and the service was absolutely first-class.',
-    },
-    {
-      name: 'OKORO DIVINE',
-      text: 'I bought a fragrance on impulse and it became my signature scent within a week. Bold, refined, and unmistakably premium — yet priced in a way that lets you actually enjoy wearing it daily.',
-    },
-    {
-      name: 'PRINCE GP',
-      text: 'The watch I ordered exceeded every expectation — weight, dial clarity, strap quality. It wears like a much more expensive piece. KPrimestores proves luxury does not have to cost a fortune.',
-    },
-    {
-      name: 'ESTACY CHU',
-      text: 'Receiving my perfume order felt like unboxing a gift. The presentation, the scent, the staying power — all immaculate. KPrimestores treats fragrance the way it deserves to be treated: as an art form.',
-    },
-    {
-      name: 'RISI GREAT',
-      text: 'I stumbled onto KPrimestores searching for a quality watch on a budget. What I found was genuinely premium. Clean, precise, beautiful — and priced so fairly I ordered two more pieces immediately.',
-    },
+    { name: 'BUDUZIRI WISDOM', image: '/testimonials/buduziri-wisdom.jpg', text: 'The fragrance I ordered from KPrimestores is absolutely breathtaking — rich, long-lasting, and far beyond what I expected at the price. Every compliment I receive now leads people straight here.' },
+    { name: 'MEZIE BRIGHT',    image: '/testimonials/mezie-bright.jpg',    text: 'I purchased a timepiece as a gift and it arrived impeccably packaged and exactly as described. The quality rivals pieces three times the price. KPrimestores has set a new standard for me.' },
+    { name: 'CHIMZI DICKSON',  image: '/testimonials/chimzi-dickson.jpg',  text: 'The depth and projection of the perfume I bought is extraordinary. I have worn designer fragrances for years, and KPrimestores curates at that same elevated level — at a price that finally makes sense.' },
+    { name: 'CHINWE PRESH',    image: '/testimonials/chinwe-presh.jpg',    text: 'My watch arrived looking like pure luxury — flawless finishing, smooth movement, and an elegance I did not expect at this price point. KPrimestores delivers on every promise without exception.' },
+    { name: 'KELLY RICHARD',   image: '/testimonials/kelly-richard.jpg',   text: 'I have ordered three fragrances so far and each one has been a masterpiece. The scent profiles are sophisticated, the longevity is remarkable, and the pricing is genuinely unbeatable.' },
+    { name: 'MAURICE FRANK',   image: '/testimonials/maurice-frank.jpg',   text: 'KPrimestores sent me a watch that stopped every conversation in the room. People could not believe the price. The craftsmanship is genuine and the service was absolutely first-class.' },
+    { name: 'OKORO DIVINE',    image: '/testimonials/okoro-divine.jpg',    text: 'I bought a fragrance on impulse and it became my signature scent within a week. Bold, refined, and unmistakably premium — yet priced in a way that lets you actually enjoy wearing it daily.' },
+    { name: 'PRINCE GP',       image: '/testimonials/prince-gp.jpg',       text: 'The watch I ordered exceeded every expectation — weight, dial clarity, strap quality. It wears like a much more expensive piece. KPrimestores proves luxury does not have to cost a fortune.' },
+    { name: 'ESTACY CHU',      image: '/testimonials/estacy-chu.jpg',      text: 'Receiving my perfume order felt like unboxing a gift. The presentation, the scent, the staying power — all immaculate. KPrimestores treats fragrance the way it deserves to be treated: as an art form.' },
+    { name: 'RISI GREAT',      image: '/testimonials/risi-great.jpg',      text: 'I stumbled onto KPrimestores searching for a quality watch on a budget. What I found was genuinely premium. Clean, precise, beautiful — and priced so fairly I ordered two more pieces immediately.' },
   ]
 
   const startAutoplay = useCallback(() => {
@@ -309,6 +283,25 @@ const HomeSec = () => {
         }
         .value-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
+        /* ── AVATAR ── */
+        .avatar-ring {
+          width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+          padding: 2px; overflow: hidden;
+          background: linear-gradient(135deg, var(--gold), var(--gold-d));
+          box-shadow: 0 0 0 2px rgba(245,140,39,0.15), 0 4px 14px rgba(245,140,39,0.2);
+        }
+        .avatar-inner {
+          width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+          background: linear-gradient(135deg, #f5efe4, #ede5d8);
+          display: flex; align-items: center; justify-content: center;
+        }
+        .avatar-initials {
+          font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600;
+          background: linear-gradient(135deg, var(--gold), var(--gold-d));
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+          background-clip: text; letter-spacing: 0.05em; line-height: 1;
+        }
+
         .testimony-name {
           font-family: 'Cinzel', serif; font-weight: 500; font-size: 0.78rem;
           letter-spacing: 0.28em; text-transform: uppercase;
@@ -317,7 +310,7 @@ const HomeSec = () => {
           background-clip: text; line-height: 1;
         }
         .testimony-name-rule {
-          width: 28px; height: 1px;
+          width: 20px; height: 1px;
           background: linear-gradient(90deg, var(--gold), var(--gold-d)); flex-shrink: 0;
         }
         .quote-mark {
@@ -581,16 +574,48 @@ const HomeSec = () => {
 
             <div ref={reveal('fade-up', 150)} className="mt-14">
               <div className="relative">
+
+                {/* ── TESTIMONY CARD ── */}
                 <div
                   key={currentTestimonial}
-                  className={`testimony-card px-8 sm:px-12 pt-12 pb-10 ${testimonyDir === 'next' ? 'test-in-next' : 'test-in-prev'}`}
+                  className={`testimony-card px-8 sm:px-12 pt-10 pb-10 ${testimonyDir === 'next' ? 'test-in-next' : 'test-in-prev'}`}
                 >
                   <span className="quote-mark" aria-hidden="true">&ldquo;</span>
-                  <div className="flex items-center gap-3 mb-5 relative z-10">
-                    <span className="testimony-name-rule" />
-                    <span className="testimony-name">{testimonials[currentTestimonial].name}</span>
-                    <span className="testimony-name-rule" />
+
+                  {/* Avatar + Name */}
+                  <div className="flex items-center gap-4 mb-6 relative z-10">
+                    <div className="avatar-ring">
+                      <div className="avatar-inner">
+                        {testimonials[currentTestimonial].image ? (
+                          <Image
+                            src={testimonials[currentTestimonial].image}
+                            alt={testimonials[currentTestimonial].name}
+                            width={60}
+                            height={60}
+                            className="object-cover w-full h-full rounded-full"
+                          />
+                        ) : (
+                          <span className="avatar-initials">
+                            {getInitials(testimonials[currentTestimonial].name)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="testimony-name-rule" />
+                        <span className="testimony-name">
+                          {testimonials[currentTestimonial].name}
+                        </span>
+                      </div>
+                      <p className="font-body text-[10px] tracking-[0.18em] uppercase"
+                        style={{ color: 'var(--ink-soft)' }}>
+                        Verified Customer
+                      </p>
+                    </div>
                   </div>
+
+                  {/* Quote text */}
                   <p
                     className="font-display text-xl sm:text-2xl font-light italic leading-relaxed relative z-10"
                     style={{ color: 'var(--ink-mid)' }}
@@ -599,6 +624,7 @@ const HomeSec = () => {
                   </p>
                 </div>
 
+                {/* Controls */}
                 <div className="flex items-center justify-between mt-8">
                   <button className="arrow-btn" aria-label="Previous" onClick={() => stepTestimonial('prev')}>←</button>
                   <div className="flex items-center gap-2">
